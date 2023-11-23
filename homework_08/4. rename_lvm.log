@@ -1,0 +1,314 @@
+Script started on Sun 13 Aug 2023 05:01:52 AM EDT
+[root@localhost scripts]# vgs
+  VG     #PV #LV #SN Attr   VSize  VFree
+  centos   1   2   0 wz--n- <7.00g    0 
+[root@localhost scripts]# vgre
+vgreduce  vgremove  vgrename  
+[root@localhost scripts]# vgrename centos lvn[Kmcentos
+  Volume group "centos" successfully renamed to "lvmcentos"
+[root@localhost scripts]# sed ''/'s'c'e'n'[1P'[1P'[1P'/'[1P'[1P'[1P's'/'c'e'n't'o's'/'l'v'm'/'c'e'n't'o's'/'g'[C /etc/fstab > [1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cfstab && mv fstab >[K/etc/fstab 
+mv: overwrite ‘/etc/fstab’? y
+[root@localhost scripts]# cat /etc/fstab 
+
+#
+# /etc/fstab
+# Created by anaconda on Sun Aug 13 02:42:02 2023
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/lvmcentos-root /                       ext4    defaults        1 1
+UUID=322b6037-3b25-4cc2-88c8-db87263f00a9 /boot                   xfs     defaults        0 0
+/dev/mapper/lvmcentos-swap swap                    swap    defaults        0 0
+[root@localhost scripts]# cat /etc/fstab [54@sed 's/centos/lvmcentos/g' /etc/fstab > fstab && mv fstab[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1@d[1@e[1@f[1@a[1@u[3@lt/[1@r[1P[1@gr > fstab && mv fstab /etc/fstab  [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cu > fstab && mv fstab /etc/fstab  [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cb > fstab && mv fstab /etc/fstab [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cstab && mv fstab /etc/fstab [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ctab && mv fstab /etc/fstab  [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1@g[1@ru && mv fstab /etc/fstab  [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cb && mv fstab /etc/fstab  [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cstab /etc/fstab  [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1@g[1@r[1@ub /etc/fstab  [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P d e f a ultt/ / g [1P [1P g r ub 
+mv: overwrite ‘/etc/default/grub’? y
+[root@localhost scripts]# cat [K[K[K[K
+[root@localhost scripts]# cat /etc/default/grub 
+GRUB_TIMEOUT=15
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=lvmcentos/root rd.lvm.lv=lvmcentos/swap rhgb quiet"
+GRUB_DISABLE_RECOVERY="true"
+[root@localhost scripts]# 
+[root@localhost scripts]# sed -e ''s'/'[']'=]'[Cc'e'n't'o's'/'='l'v'm'c'e'n't'o's'/'g'[C /boot/grub2/grub.cfg > grub2[K[K[K[K[Kgrub.cfg && mv gr ub.cfg /boot/grub2/grub.cfg 
+mv: overwrite ‘/boot/grub2/grub.cfg’? y
+[root@localhost scripts]# 
+[root@localhost scripts]# ca[K[Ksed -e 's/[=]centos/=lvmcentos/g' /boot/grub2/grub.cfg > grub.cfg && mv gruub.cfg /boot/grub2/grub.cfg [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clvmcentos/g' /boot/grub2/grub.cfg > grub.cfg && mv grub[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C\lvmcentos/g' /boot/grub2/grub.cfg > grub.cfg && mv gru[1@b[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/lvmcentos/g' /boot/grub2/grub.cfg > grub.cfg && mv gr[1@u[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C]centos/\/lvmcentos/g' /boot/grub2/grub.cfg > grub.cfg && mv gru[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/]centos/\/lvmcentos/g' /boot/grub2/grub.cfg > grub.cfg && mv gr[1@u[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+mv: overwrite ‘/boot/grub2/grub.cfg’? y
+[root@localhost scripts]# cat[K[K[K
+[root@localhost scripts]# 
+[root@localhost scripts]# cat /boot/grub2/grub.cfg 
+#
+# DO NOT EDIT THIS FILE
+#
+# It is automatically generated by grub2-mkconfig using templates
+# from /etc/grub.d and settings from /etc/default/grub
+#
+
+### BEGIN /etc/grub.d/00_header ###
+set pager=1
+
+if [ -s $prefix/grubenv ]; then
+  load_env
+fi
+if [ "${next_entry}" ] ; then
+   set default="${next_entry}"
+   set next_entry=
+   save_env next_entry
+   set boot_once=true
+else
+   set default="${saved_entry}"
+fi
+
+if [ x"${feature_menuentry_id}" = xy ]; then
+  menuentry_id_option="--id"
+else
+  menuentry_id_option=""
+fi
+
+export menuentry_id_option
+
+if [ "${prev_saved_entry}" ]; then
+  set saved_entry="${prev_saved_entry}"
+  save_env saved_entry
+  set prev_saved_entry=
+  save_env prev_saved_entry
+  set boot_once=true
+fi
+
+function savedefault {
+  if [ -z "${boot_once}" ]; then
+    saved_entry="${chosen}"
+    save_env saved_entry
+  fi
+}
+
+function load_video {
+  if [ x$feature_all_video_module = xy ]; then
+    insmod all_video
+  else
+    insmod efi_gop
+    insmod efi_uga
+    insmod ieee1275_fb
+    insmod vbe
+    insmod vga
+    insmod video_bochs
+    insmod video_cirrus
+  fi
+}
+
+terminal_output console
+if [ x$feature_timeout_style = xy ] ; then
+  set timeout_style=menu
+  set timeout=5
+# Fallback normal timeout code in case the timeout_style feature is
+# unavailable.
+else
+  set timeout=5
+fi
+### END /etc/grub.d/00_header ###
+
+### BEGIN /etc/grub.d/00_tuned ###
+set tuned_params=""
+set tuned_initrd=""
+### END /etc/grub.d/00_tuned ###
+
+### BEGIN /etc/grub.d/01_users ###
+if [ -f ${prefix}/user.cfg ]; then
+  source ${prefix}/user.cfg
+  if [ -n "${GRUB2_PASSWORD}" ]; then
+    set superusers="root"
+    export superusers
+    password_pbkdf2 root ${GRUB2_PASSWORD}
+  fi
+fi
+### END /etc/grub.d/01_users ###
+
+### BEGIN /etc/grub.d/10_linux ###
+menuentry 'CentOS Linux (3.10.0-1160.95.1.el7.x86_64) 7 (Core)' --class centos --class gnu-linux --class gnu --class os --unrestricted $menuentry_id_option 'gnulinux-3.10.0-1160.71.1.el7.x86_64-advanced-c52e0f7e-c142-43ec-8dab-69db894cf4a2' {
+	load_video
+	set gfxpayload=keep
+	insmod gzio
+	insmod part_msdos
+	insmod xfs
+	set root='hd0,msdos1'
+	if [ x$feature_platform_search_hint = xy ]; then
+	  search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1 --hint='hd0,msdos1'  322b6037-3b25-4cc2-88c8-db87263f00a9
+	else
+	  search --no-floppy --fs-uuid --set=root 322b6037-3b25-4cc2-88c8-db87263f00a9
+	fi
+	linux16 /vmlinuz-3.10.0-1160.95.1.el7.x86_64 root=/dev/mapper/lvmcentos-root ro crashkernel=auto rd.lvm.lv=lvmcentos/root rd.lvm.lv=lvmcentos/swap rhgb quiet LANG=en_US.UTF-8
+	initrd16 /initramfs-3.10.0-1160.95.1.el7.x86_64.img
+}
+menuentry 'CentOS Linux (3.10.0-1160.71.1.el7.x86_64) 7 (Core)' --class centos --class gnu-linux --class gnu --class os --unrestricted $menuentry_id_option 'gnulinux-3.10.0-1160.71.1.el7.x86_64-advanced-c52e0f7e-c142-43ec-8dab-69db894cf4a2' {
+	load_video
+	set gfxpayload=keep
+	insmod gzio
+	insmod part_msdos
+	insmod xfs
+	set root='hd0,msdos1'
+	if [ x$feature_platform_search_hint = xy ]; then
+	  search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1 --hint='hd0,msdos1'  322b6037-3b25-4cc2-88c8-db87263f00a9
+	else
+	  search --no-floppy --fs-uuid --set=root 322b6037-3b25-4cc2-88c8-db87263f00a9
+	fi
+	linux16 /vmlinuz-3.10.0-1160.71.1.el7.x86_64 root=/dev/mapper/lvmcentos-root ro crashkernel=auto rd.lvm.lv=lvmcentos/root rd.lvm.lv=lvmcentos/swap rhgb quiet LANG=en_US.UTF-8
+	initrd16 /initramfs-3.10.0-1160.71.1.el7.x86_64.img
+}
+menuentry 'CentOS Linux (0-rescue-8e2fc1bad22d3d4db09a3652529ac2a7) 7 (Core)' --class centos --class gnu-linux --class gnu --class os --unrestricted $menuentry_id_option 'gnulinux-0-rescue-8e2fc1bad22d3d4db09a3652529ac2a7-advanced-c52e0f7e-c142-43ec-8dab-69db894cf4a2' {
+	load_video
+	insmod gzio
+	insmod part_msdos
+	insmod xfs
+	set root='hd0,msdos1'
+	if [ x$feature_platform_search_hint = xy ]; then
+	  search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1 --hint='hd0,msdos1'  322b6037-3b25-4cc2-88c8-db87263f00a9
+	else
+	  search --no-floppy --fs-uuid --set=root 322b6037-3b25-4cc2-88c8-db87263f00a9
+	fi
+	linux16 /vmlinuz-0-rescue-8e2fc1bad22d3d4db09a3652529ac2a7 root=/dev/mapper/lvmcentos-root ro crashkernel=auto rd.lvm.lv=lvmcentos/root rd.lvm.lv=lvmcentos/swap rhgb quiet
+	initrd16 /initramfs-0-rescue-8e2fc1bad22d3d4db09a3652529ac2a7.img
+}
+
+### END /etc/grub.d/10_linux ###
+
+### BEGIN /etc/grub.d/20_linux_xen ###
+### END /etc/grub.d/20_linux_xen ###
+
+### BEGIN /etc/grub.d/20_ppc_terminfo ###
+### END /etc/grub.d/20_ppc_terminfo ###
+
+### BEGIN /etc/grub.d/30_os-prober ###
+### END /etc/grub.d/30_os-prober ###
+
+### BEGIN /etc/grub.d/40_custom ###
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+### END /etc/grub.d/40_custom ###
+
+### BEGIN /etc/grub.d/41_custom ###
+if [ -f  ${config_directory}/custom.cfg ]; then
+  source ${config_directory}/custom.cfg
+elif [ -z "${config_directory}" -a -f  $prefix/custom.cfg ]; then
+  source $prefix/custom.cfg;
+fi
+### END /etc/grub.d/41_custom ###
+[root@localhost scripts]# 
+[root@localhost scripts]# 
+[root@localhost scripts]# mkinitrd -f -v /boot/initramfs-$()u)n)a)m)e) )-)r)[C.img $()u)n)a)m)e) )-)r)
+Executing: /sbin/dracut -f -v /boot/initramfs-3.10.0-1160.95.1.el7.x86_64.img 3.10.0-1160.95.1.el7.x86_64
+dracut module 'modsign' will not be installed, because command 'keyctl' could not be found!
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+dracut module 'cifs' will not be installed, because command 'mount.cifs' could not be found!
+dracut module 'iscsi' will not be installed, because command 'iscsistart' could not be found!
+dracut module 'iscsi' will not be installed, because command 'iscsi-iname' could not be found!
+95nfs: Could not find any command of 'rpcbind portmap'!
+dracut module 'modsign' will not be installed, because command 'keyctl' could not be found!
+dracut module 'busybox' will not be installed, because command 'busybox' could not be found!
+dracut module 'crypt' will not be installed, because command 'cryptsetup' could not be found!
+dracut module 'dmraid' will not be installed, because command 'dmraid' could not be found!
+dracut module 'dmsquash-live-ntfs' will not be installed, because command 'ntfs-3g' could not be found!
+dracut module 'mdraid' will not be installed, because command 'mdadm' could not be found!
+dracut module 'multipath' will not be installed, because command 'multipath' could not be found!
+dracut module 'cifs' will not be installed, because command 'mount.cifs' could not be found!
+dracut module 'iscsi' will not be installed, because command 'iscsistart' could not be found!
+dracut module 'iscsi' will not be installed, because command 'iscsi-iname' could not be found!
+95nfs: Could not find any command of 'rpcbind portmap'!
+*** Including module: bash ***
+*** Including module: nss-softokn ***
+*** Including module: i18n ***
+*** Including module: network ***
+*** Including module: ifcfg ***
+*** Including module: drm ***
+*** Including module: plymouth ***
+*** Including module: dm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 60-persistent-storage-dm.rules
+Skipping udev rule: 55-dm.rules
+*** Including module: kernel-modules ***
+*** Including module: lvm ***
+Skipping udev rule: 64-device-mapper.rules
+Skipping udev rule: 56-lvm.rules
+Skipping udev rule: 60-persistent-storage-lvm.rules
+*** Including module: qemu ***
+*** Including module: resume ***
+*** Including module: rootfs-block ***
+*** Including module: terminfo ***
+*** Including module: udev-rules ***
+Skipping udev rule: 40-redhat-cpu-hotplug.rules
+Skipping udev rule: 91-permissions.rules
+*** Including module: biosdevname ***
+*** Including module: systemd ***
+*** Including module: usrmount ***
+*** Including module: base ***
+*** Including module: fs-lib ***
+*** Including module: microcode_ctl-fw_dir_override ***
+  microcode_ctl module: mangling fw_dir
+    microcode_ctl: reset fw_dir to "/lib/firmware/updates /lib/firmware"
+    microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel"...
+intel: model '', path ' intel-ucode/*', kvers ''
+No matching microcode files in ' intel-ucode/*' for CPU model 'AuthenticAMD 19-21-00', skipping
+    microcode_ctl: configuration "intel" is ignored
+    microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-2d-07"...
+intel-06-2d-07: model 'GenuineIntel 06-2d-07', path ' intel-ucode/06-2d-07', kvers ''
+Current CPU model 'AuthenticAMD 19-21-00' doesn't match configuration CPU model 'GenuineIntel 06-2d-07', skipping
+    microcode_ctl: configuration "intel-06-2d-07" is ignored
+    microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-4e-03"...
+intel-06-4e-03: model 'GenuineIntel 06-4e-03', path ' intel-ucode/06-4e-03', kvers ''
+Current CPU model 'AuthenticAMD 19-21-00' doesn't match configuration CPU model 'GenuineIntel 06-4e-03', skipping
+    microcode_ctl: configuration "intel-06-4e-03" is ignored
+    microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-4f-01"...
+intel-06-4f-01: model 'GenuineIntel 06-4f-01', path ' intel-ucode/06-4f-01', kvers ' 4.17.0 3.10.0-894 3.10.0-862.6.1 3.10.0-693.35.1 3.10.0-514.52.1 3.10.0-327.70.1 2.6.32-754.1.1 2.6.32-573.58.1 2.6.32-504.71.1 2.6.32-431.90.1 2.6.32-358.90.1'
+Current CPU model 'AuthenticAMD 19-21-00' doesn't match configuration CPU model 'GenuineIntel 06-4f-01', skipping
+    microcode_ctl: configuration "intel-06-4f-01" is ignored
+    microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-55-04"...
+intel-06-55-04: model 'GenuineIntel 06-55-04', path ' intel-ucode/06-55-04', kvers ''
+Current CPU model 'AuthenticAMD 19-21-00' doesn't match configuration CPU model 'GenuineIntel 06-55-04', skipping
+    microcode_ctl: configuration "intel-06-55-04" is ignored
+    microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-5e-03"...
+intel-06-5e-03: model 'GenuineIntel 06-5e-03', path ' intel-ucode/06-5e-03', kvers ''
+Current CPU model 'AuthenticAMD 19-21-00' doesn't match configuration CPU model 'GenuineIntel 06-5e-03', skipping
+    microcode_ctl: configuration "intel-06-5e-03" is ignored
+    microcode_ctl: processing data directory  "/usr/share/microcode_ctl/ucode_with_caveats/intel-06-8c-01"...
+intel-06-8c-01: model 'GenuineIntel 06-8c-01', path ' intel-ucode/06-8c-01', kvers ''
+Current CPU model 'AuthenticAMD 19-21-00' doesn't match configuration CPU model 'GenuineIntel 06-8c-01', skipping
+    microcode_ctl: configuration "intel-06-8c-01" is ignored
+    microcode_ctl: final fw_dir: "/lib/firmware/updates /lib/firmware"
+*** Including module: shutdown ***
+*** Including modules done ***
+*** Installing kernel module dependencies and firmware ***
+*** Installing kernel module dependencies and firmware done ***
+*** Resolving executable dependencies ***
+*** Resolving executable dependencies done***
+*** Hardlinking files ***
+*** Hardlinking files done ***
+*** Stripping files ***
+*** Stripping files done ***
+*** Generating early-microcode cpio image contents ***
+*** Constructing AuthenticAMD.bin ****
+*** No early-microcode cpio image needed ***
+*** Store current command line parameters ***
+*** Creating image file ***
+*** Creating image file done ***
+*** Creating initramfs image file '/boot/initramfs-3.10.0-1160.95.1.el7.x86_64.img' done ***
+[root@localhost scripts]# 
+[root@localhost scripts]# 
+[root@localhost scripts]# vgs
+  VG        #PV #LV #SN Attr   VSize  VFree
+  lvmcentos   1   2   0 wz--n- <7.00g    0 
+[root@localhost scripts]# exit
+exit
+
+Script done on Sun 13 Aug 2023 05:09:03 AM EDT

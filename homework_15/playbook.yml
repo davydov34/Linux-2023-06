@@ -1,0 +1,46 @@
+---
+- name: Install Repo and Web Server NGINX
+  hosts: nginx
+  become: true
+  vars:
+    nginx_listen_port: 8080
+
+  tasks:
+    - name: Install EPEL Repo
+      ansible.builtin.yum:
+        name: epel-release
+        state: present
+      tags:
+        - epel-package
+        - packages
+
+    - name: Install Web Server NGINX
+      ansible.builtin.yum:
+        name: nginx
+        state: latest
+      notify:
+        - Restart nginx
+      tags:
+        - nginx-package
+        - packages
+
+    - name: Make Web Server config file
+      ansible.builtin.template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify:
+        - Reload nginx
+      tags:
+        - nginx-configoration
+
+  handlers:
+    - name: Restart nginx
+      ansible.builtin.systemd:
+          name: nginx
+          enabled: true
+          state: restarted
+          
+    - name: Reload nginx
+      ansible.builtin.systemd:
+          name: nginx
+          state: reloaded

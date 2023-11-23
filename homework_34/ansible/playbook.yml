@@ -1,0 +1,75 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Install for all hosts
+    ansible.builtin.apt:
+      name:
+        - vim
+        - traceroute
+        - tcpdump
+        - net-tools
+        - openvpn
+        - iperf3
+      state: present
+      update_cache: true
+
+  - name: Deploy OpenVPN Server
+    block:
+      - name: Install easy-rsa
+        ansible.builtin.apt:
+          name: 
+            - easy-rsa
+          state: present
+          update_cache: true 
+
+      - name: Static.key is exists?
+        ansible.builtin.stat:
+          path: /etc/openvpn/static.key
+        register: static_key_exists
+
+      - name: Create file-key
+        ansible.builtin.command: openvpn --genkey secret /etc/openvpn/static.key
+        when:
+          - static_key_exists != true
+
+      - name: Retrieve the Static.key
+        ansible.builtin.command: cat /etc/openvpn/static.key
+        register: static_key
+        changed_when: false
+
+      - name: Append server.conf
+        ansible.builtin.template:
+          src: server.conf
+          dest: /etc/openvpn/server.conf
+          mode: 0644
+
+      - name: Start service VPN        
+        ansible.builtin.systemd:
+          name: openvpn@server
+          state: started
+          enabled: true
+    when: (ansible_hostname == "server")
+
+  - name: Deploy OpenVPN Client
+    block:
+      - name: Append conf file
+        ansible.builtin.template:
+          src: client.conf
+          dest: /etc/openvpn/server.conf
+          mode: 0644
+
+      - name: Copy static.key from server to client.conf
+        ansible.builtin.copy:
+          dest: /etc/openvpn/static.key
+          content: "{{ hostvars['server'].static_key.stdout }}"
+          mode: 0644
+          
+      - name: Start service VPN        
+        ansible.builtin.systemd:
+          name: openvpn@server
+          state: started
+          enabled: true
+    when: (ansible_hostname == "client")
+
+          
