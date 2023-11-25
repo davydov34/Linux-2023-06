@@ -1,0 +1,103 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  # Устанавливаем пакеты bind, bind-utils, ntp, vim, nano
+  - name: install packages
+    yum: name={{ item }} state=latest 
+    with_items:
+      - bind
+      - bind-utils
+      - ntp
+      - vim
+      - nano
+  # Останавливаем и убирем из автозапуска chronyd
+  - name: Stop and Disable chronyd
+    ansible.builtin.service:
+      name: chronyd
+      state: stopped
+      enabled: false
+  # Запускаем и добавляем в автозапуск ntpd
+  - name: Start and Enable ntpd
+    ansible.builtin.service:
+      name: ntpd
+      state: started
+      enabled: true
+
+  # Копируем named.zonetransfer.key на хосты с правами 0644
+  - name: copy transferkey to all servers and the client
+    copy: src=named.zonetransfer.key dest=/etc/named.zonetransfer.key owner=root group=named mode=0644
+
+  # Настраиваем хост ns01
+- hosts: ns01
+  become: yes
+  tasks:
+  # Копируем файл конфигурации DNS:
+  - name: copy named.conf
+    copy: 
+      src: master-named.conf 
+      dest: /etc/named.conf 
+      owner: root 
+      group: named 
+      mode: 0640
+  # Копируем файл с настройками зоны:
+  - name: copy zones
+    copy: src={{ item }} dest=/etc/named/ owner=root group=named mode=0660
+    with_fileglob:
+      - named.d*
+  # Копируем with_fileglob на сервер
+  - name: Copy named.newdns.lab
+    ansible.builtin.copy:
+      src: named.newdns.lab
+      dest: /etc/named/named.newdns.lab
+      owner:  root
+      group: named
+      mode: 0660
+  # Копируем resolv.conf на сервер
+  - name: copy resolv.conf to the servers
+    ansible.builtin.template:
+      src: servers-resolv.conf.j2
+      dest: /etc/resolv.conf
+      owner: root
+      group: root
+      mode: 0644
+  # Изменение прав каталога /etc/named на root:root 0670
+  - name: set /etc/named permissions
+    file: path=/etc/named owner=root group=named mode=0670
+  # Перезапуск службы named и добавление её в автозагрузку
+  - name: ensure named is running and enabled
+    service: name=named state=restarted enabled=yes
+
+# Настраиваем хост ns02
+- hosts: ns02
+  become: yes
+  tasks:
+  - name: copy named.conf
+    copy: src=slave-named.conf dest=/etc/named.conf owner=root group=named mode=0640
+  # Копируем resolv.conf на сервер
+  - name: copy resolv.conf to the servers
+    ansible.builtin.template:
+      src: servers-resolv.conf.j2
+      dest: /etc/resolv.conf
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: set /etc/named permissions
+    file: path=/etc/named owner=root group=named mode=0670
+
+  - name: ensure named is running and enabled
+    service: name=named state=restarted enabled=yes
+    
+- hosts: client,client2
+  become: yes
+  tasks:
+  # Копируем client-resolv.conf на клиента
+  - name: copy resolv.conf to the client
+    copy: src=client-resolv.conf dest=/etc/resolv.conf owner=root group=root mode=0644
+  # Копируем конфигурационный файл rndc:
+  - name: copy rndc conf file
+    copy: src=rndc.conf dest=/home/vagrant/rndc.conf owner=vagrant group=vagrant mode=0644
+  # Настройка сообщения при входе на сервер:
+  - name: copy motd to the client
+    copy: src=client-motd dest=/etc/motd owner=root group=root mode=0644
